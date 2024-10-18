@@ -8,5 +8,5 @@ import { Component } from "@angular/core";
 })
 
 export default class Heading {
-    title = "Testing Angular";
+    title = "Your To-Do App in Angular!";
 }

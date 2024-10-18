@@ -1,0 +1,30 @@
+<section class="todo-app">
+    @if (items.length === 0) {
+    <div class="warning-message">
+        <p>Your list is empty</p>
+    </div>
+    }
+
+    <div class="input-row">
+        <input type="text" [(ngModel)]="currentItemTitle" (keypress)="onKeyPress($event)" />
+        <button (click)="addItem()">Add</button>
+    </div>
+
+    @if (items.length > 0) {
+    <ul class="task-list">
+        @for (item of items; track item.id) {
+        <li class="task-item" [class.task-item--completed]="item.isCompleted">
+            {{ item.task }}
+
+            <div class="task-item__options">
+                <input type="checkbox" [checked]="item.isCompleted" (click)="toggleCompletion(item)" />
+
+                @if (item.isCompleted) {
+                <button (click)="deleteItem(item)">Deletar</button>
+                }
+            </div>
+        </li>
+        }
+    </ul>
+    }
+</section>
